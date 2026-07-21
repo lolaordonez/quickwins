@@ -1966,16 +1966,8 @@ ul {
 }
 
 .site-footer__cluster,
-.site-footer__aoc,
 .site-footer__bottom-section {
   grid-column: 1 / -1;
-}
-
-.site-footer__aoc p {
-  max-width: 32rem;
-  font-size: clamp(1.1rem, 1.45vw, 1.7rem);
-  font-weight: 400;
-  line-height: 1.18;
 }
 
 .site-footer__cluster {
@@ -2008,6 +2000,16 @@ ul {
   margin-top: 0.12rem;
   font-size: clamp(1.12rem, 1.25vw, 1.6rem);
   line-height: 1.05;
+}
+
+.site-footer__list-copy {
+  max-width: 30rem;
+  margin-top: 1rem;
+  color: rgba(var(--footer-ink-rgb), 0.92);
+  font-size: clamp(1.02rem, 1.1vw, 1.28rem);
+  font-weight: 400;
+  line-height: 1.22;
+  opacity: 1;
 }
 
 .site-footer__contact-row {
@@ -2147,12 +2149,6 @@ ul {
 
   .site-footer__list--contact {
     grid-row: 1;
-  }
-
-  .site-footer__aoc {
-    grid-column: 7 / -1;
-    grid-row: 1;
-    align-self: start;
   }
 
   .site-footer__bottom-section {
@@ -2630,7 +2626,6 @@ ul {
   }
 
   .site-footer__cluster,
-  .site-footer__aoc,
   .site-footer__bottom-section {
     grid-column: 1;
   }
