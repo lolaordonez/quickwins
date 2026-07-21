@@ -387,6 +387,31 @@ ul {
   color: var(--section-accent);
 }
 
+.flip-link {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.08;
+  vertical-align: top;
+  padding-block: 0.08em;
+}
+
+.flip-inner {
+  display: inline-flex;
+  flex-direction: column;
+  transition: transform 0.45s cubic-bezier(0.7, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.flip-word {
+  display: block;
+  line-height: 1.08;
+}
+
+.flip-link:hover .flip-inner,
+.flip-link:focus-visible .flip-inner {
+  transform: translateY(-50%);
+}
+
 .site-header__actions {
   display: flex;
   align-items: center;
@@ -2116,6 +2141,17 @@ ul {
   .site-footer__contact-value:hover {
     opacity: 1;
     transform: translateX(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+
+  .flip-link:hover .flip-inner,
+  .flip-link:focus-visible .flip-inner {
+    transform: none;
   }
 }
 
