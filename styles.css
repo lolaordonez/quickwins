@@ -725,7 +725,7 @@ ul {
 
 .testimonial-layout {
   position: relative;
-  min-height: 860px;
+  min-height: 944px;
   padding: 0.8rem 0 0;
 }
 
@@ -842,6 +842,11 @@ ul {
   right: 0;
   width: min(100%, 71%);
   min-height: 800px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
 }
 
 .testimonial-figure__panel {
@@ -849,7 +854,7 @@ ul {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  height: 100%;
+  min-height: inherit;
   overflow: hidden;
   border-radius: 2rem;
   background:
@@ -857,6 +862,29 @@ ul {
     linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
     linear-gradient(135deg, #f7f6f4, #ffffff 58%, #f3f2ef);
   box-shadow: var(--shadow-soft);
+}
+
+.profesor-info {
+  padding: 0 1rem 0.25rem;
+  text-align: center;
+}
+
+.profesor-nombre {
+  margin: 0;
+  color: var(--negro);
+  font-family: "Poppins", "Goga", Verdana, sans-serif;
+  font-size: clamp(1.3rem, 1.45vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.profesor-cargo {
+  margin-top: 0.32rem;
+  color: #4b5563;
+  font-family: "Poppins", "Goga", Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.28;
 }
 
 .testimonial-figure__panel::before {
