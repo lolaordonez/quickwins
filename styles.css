@@ -777,7 +777,7 @@ ul {
 .testimonial-card__content {
   display: flex;
   flex-direction: column;
-  min-height: 700px;
+  min-height: 620px;
   padding: 4.4rem 3.2rem 3rem;
 }
 
@@ -865,7 +865,13 @@ ul {
 }
 
 .profesor-info {
-  padding: 0 1rem 0.25rem;
+  align-self: center;
+  width: min(100%, 540px);
+  padding: 1rem 1.2rem 1.05rem;
+  border: 1px solid rgba(18, 19, 19, 0.08);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 18px 36px rgba(18, 19, 19, 0.08);
   text-align: center;
 }
 
