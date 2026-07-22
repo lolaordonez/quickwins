@@ -101,12 +101,12 @@
   --uc-black: #0a070d;
   --uc-white: #eeedf4;
   --uc-grey: #cacdd7;
-  --uc-blue: #015ad5;
+  --uc-blue: #0b2fa0;
   --uc-lime: #9fff61;
   --uc-pink: #f100d6;
   --uc-mint: #00ffb7;
   --crema: #f7f1e5;
-  --azul-eureka: #0a5bd0;
+  --azul-eureka: #0b2fa0;
   --negro: #14171c;
   --vino-uees: #7a263c;
   --amarillo: #f7b10a;
@@ -114,10 +114,10 @@
   --landing-cream-rgb: 251, 239, 226;
   --section-white: #ffffff;
   --section-black: #121313;
-  --section-deep-blue: #012faf;
-  --section-deep-blue-rgb: 1, 47, 175;
-  --section-accent: #015ad5;
-  --section-accent-light: #7aa6ff;
+  --section-deep-blue: #0b2fa0;
+  --section-deep-blue-rgb: 11, 47, 160;
+  --section-accent: #0b2fa0;
+  --section-accent-light: #0b2fa0;
   --section-amber: #ff8201;
   --section-bg: var(--landing-cream);
   --section-bg-alt: #f4dfc8;
@@ -196,7 +196,7 @@ ul {
 
 .section--dark {
   background:
-    radial-gradient(circle at top left, rgba(1, 90, 213, 0.22), transparent 32%),
+    radial-gradient(circle at top left, rgba(11, 47, 160, 0.18), transparent 32%),
     radial-gradient(circle at bottom right, rgba(255, 130, 1, 0.14), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
     var(--section-deep-blue);
@@ -283,7 +283,7 @@ ul {
 }
 
 .btn-dark:hover {
-  background: #0144c7;
+  background: #143cae;
 }
 
 .btn-outline {
@@ -789,7 +789,7 @@ ul {
   border-radius: 999px;
   background: var(--section-accent);
   color: #ffffff;
-  box-shadow: 0 18px 34px rgba(1, 90, 213, 0.26);
+  box-shadow: 0 18px 34px rgba(var(--section-deep-blue-rgb), 0.26);
 }
 
 .testimonial-badge span {
@@ -1194,7 +1194,7 @@ ul {
   border-radius: 2.2rem;
   border: 1px solid rgba(18, 19, 19, 0.08);
   background:
-    radial-gradient(circle at top right, rgba(1, 90, 213, 0.16), transparent 34%),
+    radial-gradient(circle at top right, rgba(11, 47, 160, 0.14), transparent 34%),
     radial-gradient(circle at bottom left, rgba(255, 130, 1, 0.12), transparent 30%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(var(--landing-cream-rgb), 0.86)),
     var(--landing-cream);
@@ -1516,7 +1516,7 @@ ul {
 
 .champion-section {
   background:
-    radial-gradient(circle at 10% 10%, rgba(1, 90, 213, 0.18), transparent 28%),
+    radial-gradient(circle at 10% 10%, rgba(11, 47, 160, 0.16), transparent 28%),
     radial-gradient(circle at 90% 80%, rgba(255, 130, 1, 0.14), transparent 24%),
     var(--section-deep-blue);
   color: var(--section-white);
@@ -1554,6 +1554,10 @@ ul {
   font-style: normal;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.champion-section .type-target {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .type-target::after {
@@ -1801,7 +1805,7 @@ ul {
   overflow: hidden;
   border-radius: 2.3rem;
   background:
-    linear-gradient(180deg, rgba(1, 47, 175, 0.46), rgba(1, 47, 175, 0.72)),
+    linear-gradient(180deg, rgba(11, 47, 160, 0.46), rgba(11, 47, 160, 0.72)),
     url("https://cdn.prod.website-files.com/69b2e3ac50e9b987b57f1aa1/69de17bdc930130f3b6fd4ac_CTA.webp")
       center/cover no-repeat;
   padding: 4rem 3rem;
@@ -1866,9 +1870,9 @@ ul {
   --footer-pink-rgb: 255, 194, 226;
   --footer-orange: #ff8201;
   --footer-orange-rgb: 255, 130, 1;
-  --footer-blue: #015ad5;
-  --footer-blue-rgb: 1, 90, 213;
-  --footer-trail-rgb: 1, 90, 213;
+  --footer-blue: #0b2fa0;
+  --footer-blue-rgb: 11, 47, 160;
+  --footer-trail-rgb: 11, 47, 160;
   --footer-line: rgba(var(--footer-ink-rgb), 0.1);
   --footer-muted: rgba(var(--footer-ink-rgb), 0.62);
   --footer-faint: rgba(var(--footer-ink-rgb), 0.22);
