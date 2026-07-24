@@ -429,7 +429,6 @@ const initFooterExperience = (footer) => {
   const wordmark = footer.querySelector("[data-footer-wordmark]");
   const wordmarkLabel = wordmark?.querySelector(":scope > span");
   const bottomSection = footer.querySelector(".site-footer__bottom-section");
-  const canvas = footer.querySelector("[data-footer-trail]");
   let footerRect = footer.getBoundingClientRect();
 
   const updateFooterRect = () => {
@@ -507,119 +506,7 @@ const initFooterExperience = (footer) => {
     refreshFooterLayout();
   }
 
-  if (!canvas || prefersReducedMotion || !supportsFinePointer) {
-    window.addEventListener("resize", refreshFooterLayout, { passive: true });
-    window.addEventListener("scroll", updateFooterRect, { passive: true });
-    return;
-  }
-
-  const context = canvas.getContext("2d");
-  if (!context) return;
-
-  const particleColor =
-    getComputedStyle(footer).getPropertyValue("--footer-trail-rgb").trim() || "1, 90, 213";
-
-  const state = {
-    dpr: Math.min(window.devicePixelRatio || 1, 2),
-    particles: [],
-    lastX: null,
-    lastY: null,
-    frameId: 0,
-    lastFrameTime: performance.now(),
-  };
-
-  const resizeCanvas = () => {
-    refreshFooterLayout();
-
-    const width = Math.max(1, Math.round(footerRect.width * state.dpr));
-    const height = Math.max(1, Math.round(footerRect.height * state.dpr));
-
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
-      canvas.style.width = `${footerRect.width}px`;
-      canvas.style.height = `${footerRect.height}px`;
-    }
-  };
-
-  const spawnParticles = (clientX, clientY) => {
-    const localX = clientX - footerRect.left;
-    const localY = clientY - footerRect.top;
-
-    if (state.lastX === null || state.lastY === null) {
-      state.lastX = localX;
-      state.lastY = localY;
-    }
-
-    const deltaX = localX - state.lastX;
-    const deltaY = localY - state.lastY;
-    const distance = Math.hypot(deltaX, deltaY);
-    const steps = Math.max(1, Math.floor(distance / 14));
-
-    for (let step = 0; step <= steps; step += 1) {
-      const progress = distance === 0 ? 1 : step / steps;
-
-      state.particles.push({
-        x: state.lastX + deltaX * progress,
-        y: state.lastY + deltaY * progress,
-        radius: 92 + Math.random() * 18,
-        opacity: 0.86 - Math.random() * 0.12,
-        age: 0,
-        life: 900 + Math.random() * 280,
-      });
-    }
-
-    if (state.particles.length > 180) {
-      state.particles.splice(0, state.particles.length - 180);
-    }
-
-    state.lastX = localX;
-    state.lastY = localY;
-  };
-
-  const drawParticles = (frameTime) => {
-    const delta = Math.min(frameTime - state.lastFrameTime, 32);
-    state.lastFrameTime = frameTime;
-
-    context.setTransform(1, 0, 0, 1, 0, 0);
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
-
-    state.particles = state.particles.filter((particle) => {
-      particle.age += delta;
-
-      const progress = particle.age / particle.life;
-      if (progress >= 1) return false;
-
-      const alpha = particle.opacity * (1 - Math.pow(progress, 1.35));
-
-      context.beginPath();
-      context.fillStyle = `rgba(${particleColor}, ${alpha})`;
-      context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      context.fill();
-
-      return true;
-    });
-
-    state.frameId = window.requestAnimationFrame(drawParticles);
-  };
-
-  const handlePointerMove = (event) => {
-    updateAmbientTarget(event.clientX, event.clientY);
-    spawnParticles(event.clientX, event.clientY);
-  };
-
-  const handlePointerLeave = () => {
-    state.lastX = null;
-    state.lastY = null;
-  };
-
-  resizeCanvas();
-  state.frameId = window.requestAnimationFrame(drawParticles);
-
-  footer.addEventListener("pointermove", handlePointerMove, { passive: true });
-  footer.addEventListener("pointerleave", handlePointerLeave, { passive: true });
-  window.addEventListener("resize", resizeCanvas, { passive: true });
+  window.addEventListener("resize", refreshFooterLayout, { passive: true });
   window.addEventListener("scroll", updateFooterRect, { passive: true });
 };
 

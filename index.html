@@ -431,7 +431,7 @@
                 <strong>
                   <span data-slider-current>01</span>
                   /
-                  <span data-slider-total>05</span>
+                  <span data-slider-total>06</span>
                 </strong>
               </div>
             </div>
@@ -445,11 +445,22 @@
 
                 <article
                   class="results-gallery__slide is-active"
+                  style="--slide-image: url('./assets/slider/slider.jpeg')"
+                >
+                  <img
+                    src="./assets/slider/slider.jpeg"
+                    alt="Foto grupal de participantes y equipo de Quick Wins en la primera edición."
+                    decoding="async"
+                  />
+                </article>
+                <article
+                  class="results-gallery__slide"
                   style="--slide-image: url('./assets/slider/quickwins-01.jpg')"
                 >
                   <img
                     src="./assets/slider/quickwins-01.jpg"
                     alt="Participantes de Quick Wins durante una sesión de trabajo colaborativo."
+                    loading="lazy"
                     decoding="async"
                   />
                 </article>
@@ -560,6 +571,15 @@
                       type="button"
                       data-slider-index="4"
                       aria-label="Ver foto 5"
+                      aria-current="false"
+                    >
+                      <span class="results-gallery__progress-fill"></span>
+                    </button>
+                    <button
+                      class="results-gallery__progress-item"
+                      type="button"
+                      data-slider-index="5"
+                      aria-label="Ver foto 6"
                       aria-current="false"
                     >
                       <span class="results-gallery__progress-fill"></span>
@@ -949,7 +969,6 @@
         <div class="site-footer__ambient" aria-hidden="true">
           <div class="site-footer__blob site-footer__blob--main"></div>
           <div class="site-footer__blob site-footer__blob--orb"></div>
-          <canvas class="site-footer__cursor-trail" data-footer-trail></canvas>
           <div class="site-footer__hover-pill">QUICK WINS</div>
         </div>
 
